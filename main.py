@@ -28,7 +28,7 @@ def generate_button_clicked():
 app = tk.Tk()
 app.geometry("600x200")
 app.config(bg='black')
-app.title("Louitron's Password Generator")
+app.title("Louitron's Password Generator - Made with Python!")
 
 strength = tk.StringVar()
 
@@ -43,7 +43,7 @@ frame.pack(fill='both', expand=True)
 strength_label = ttk.Label(frame, text="Password Strength:", font=("TkDefaultFont", 12), style="My.TLabel")
 strength_label.grid(column=0, row=1, sticky="W")
 
-user_message = ttk.Label(frame, text="Hello User! Please select the strength of your password and click 'generate'.", font=("TkDefaultFont", 12), style="My.TLabel")
+user_message = ttk.Label(frame, text="Hello There! Please select the strength of your password and click 'generate'.", font=("TkDefaultFont", 12), style="My.TLabel")
 user_message.grid(column=0, row=0, sticky="W", columnspan=4)
 
 strong_radio = ttk.Radiobutton(frame, text="Strong", variable=strength, value="strong", style="My.TRadiobutton")
@@ -58,7 +58,7 @@ easy_radio.grid(column=2, row=2, sticky="W")
 generate_button = ttk.Button(frame, text="Generate", command=generate_button_clicked, style="My.TButton")
 generate_button.grid(column=1, row=3, sticky="W")
 
-password_output = tk.Label(app, text="Your Password will appear here", font=("TkDefaultFont", 14), bg='black', fg='gray')
+password_output = tk.Label(app, text="Your Password Will Appear Here, Click To Copy", font=("TkDefaultFont", 14), bg='black', fg='gray')
 password_output.pack()
 
 app.mainloop()
