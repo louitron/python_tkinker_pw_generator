@@ -5,13 +5,33 @@ import string
 import pyperclip
 
 def generate_password(length):
-    chars = string.ascii_letters + string.digits + string.punctuation
-    password = ''.join(random.choice(chars) for i in range(length))
+    words = ['apple', 'banana', 'cherry', 'dragon', 'elephant', 'flower', 'grape', 'horse', 'ice cream', 'jungle']
+    symbols = string.punctuation
+    password = ''
+    while len(password) < length:
+        word = random.choice(words)
+        if len(password + word) <= length:
+            password += word
+        else:
+            break
+        if len(password) < length:
+            password += random.choice(string.digits + symbols)
+    password = ''.join(random.sample(password, len(password)))
     return password
 
 def generate_easy_password(length):
-    chars = string.ascii_letters + string.digits
-    password = ''.join(random.choice(chars) for i in range(length))
+    words = ['apple', 'banana', 'cherry', 'dragon', 'elephant', 'flower', 'grape', 'horse', 'ice cream', 'jungle']
+    symbols = string.punctuation
+    password = ''
+    while len(password) < length:
+        word = random.choice(words)
+        if len(password + word) <= length:
+            password += word.capitalize()
+        else:
+            break
+        if len(password) < length:
+            password += random.choice(string.digits + symbols)
+    password = ''.join(random.sample(password, len(password)))
     return password
 
 def generate_button_clicked():
