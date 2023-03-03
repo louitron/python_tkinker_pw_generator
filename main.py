@@ -303,7 +303,6 @@ def generate_easy_password(length):
   "Lampshade",
   "Yacht",
     ]
-    symbols = string.punctuation
     password = ''
     while len(password) < length:
         word = random.choice(words)
@@ -312,8 +311,17 @@ def generate_easy_password(length):
         else:
             break
         if len(password) < length:
-            password += random.choice(string.digits + symbols)
+            password += random.choice(string.digits)
     password = ''.join(random.sample(password, len(password)))
+    return password
+
+def replace_chars(password):
+    password = password.replace("a", "@")
+    password = password.replace("A", "@")
+    password = password.replace("e", "3")
+    password = password.replace("E", "3")
+    password = password.replace("o", "0")
+    password = password.replace("O", "0")
     return password
 
 def generate_button_clicked():
@@ -324,8 +332,10 @@ def generate_button_clicked():
     elif strength.get() == "easy":
         password = generate_easy_password(8)
 
+    password = replace_chars(password)
     password_output.config(text=password)
     pyperclip.copy(password)
+
 
 app = tk.Tk()
 app.geometry("600x200")
